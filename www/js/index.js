@@ -40,10 +40,18 @@ var app = {
         var parentElement = document.getElementById(id);
         var listeningElement = parentElement.querySelector('.listening');
         var receivedElement = parentElement.querySelector('.received');
-
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
-
         console.log('Received Event: ' + id);
+        navigator.accelerometer.getCurrentAcceleration(app.onSuccess, app.onError);
+    },
+    onSuccess: function(acceleration) {
+        alert('Acceleration X: ' + acceleration.x + '\n' +
+        'Acceleration Y: ' + acceleration.y + '\n' +
+        'Acceleration Z: ' + acceleration.z + '\n' +
+        'Timestamp: ' + acceleration.timestamp + '\n');
+    },
+    onError: function() {
+        alert('onError!');
     }
 };
