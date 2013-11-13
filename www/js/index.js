@@ -43,16 +43,5 @@ var app = {
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
         console.log('Received Event: ' + id);
-        var options = { frequency: 3000 };
-        navigator.accelerometer.watchAcceleration(app.onSuccess, app.onError, options);
     },
-    onSuccess: function(acceleration) {
-        alert('Acceleration X: ' + acceleration.x + '\n' +
-        'Acceleration Y: ' + acceleration.y + '\n' +
-        'Acceleration Z: ' + acceleration.z + '\n' +
-        'Timestamp: ' + acceleration.timestamp + '\n');
-    },
-    onError: function() {
-        alert('onError!');
-    }
 };
